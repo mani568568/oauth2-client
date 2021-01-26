@@ -20,7 +20,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.oauth2Login()
-                .loginPage("/login")
+                .loginPage("/login")  // login page...
                 .successHandler(oauthSuccessHandler)
                 .and()
                 .authorizeRequests()
