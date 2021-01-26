@@ -19,8 +19,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http.oauth2Login()
-                .loginPage("/login")  // login page...
+                .redirectionEndpoint()
+                .baseUri("/api/login/oauth2/code")
+                .and()
+//                .userInfoEndpoint()
+//                .userService(customOAuth2UserService)
+//                .and()
                 .successHandler(oauthSuccessHandler)
                 .and()
                 .authorizeRequests()
